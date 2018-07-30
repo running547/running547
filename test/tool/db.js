@@ -25,7 +25,6 @@ class Db {
         if (err) {
           reject(err)
         } else {
-
           resolve(connection)
         }
       })
