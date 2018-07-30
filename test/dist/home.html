@@ -1,25 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>homePage</title>
 </head>
-
 <body>
-    <div class="box">
-        <p>
-            <label for="">账户：</label>
-            <input type="text" id="name">
-        </p>
-        <p>
-            <label for="">密码：</label>
-            <input type="text" id="pwd">
-        </p>
-        <button id="btn">确定</button>
-    </div>
+    首页
+
+    <button id="btn">点击查看用户信息</button>
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
     <script>
         var data = {}
@@ -28,18 +18,15 @@
             data.pwd = $('#pwd').val();
             $.ajax({
                 type: "POST",
-                url: "/login",
+                url: "/home",
                 data: data,
                 success: function (data) {
                   console.log(data);
-                  if(data.issuc){
-                    window.location.href = './home.html'
-                  }
+                 
                  
                 }
             });
         })
     </script>
 </body>
-
 </html>
