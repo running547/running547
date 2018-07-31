@@ -10,6 +10,7 @@
     首页
 
     <button id="btn">点击查看用户信息</button>
+    <button id="btn2">注销用户</button>
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
     <script>
         var data = {}
@@ -24,6 +25,18 @@
                   console.log(data);
                  
                  
+                }
+            });
+        })
+        $('#btn2').click(function () {
+            $.ajax({
+                type: "POST",
+                url: "/home/remove",
+                data: data,
+                success: function (data) {
+                  if(data.issuc){
+                      window.location.href = '/index.html'
+                  }
                 }
             });
         })

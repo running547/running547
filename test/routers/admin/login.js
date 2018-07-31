@@ -1,6 +1,5 @@
 /*-----------------------登录模块-----------------------*/
 
-
 const jwt = require('jsonwebtoken')
 const router = require('koa-router')();
 const DB = require('../../tool/db.js')
