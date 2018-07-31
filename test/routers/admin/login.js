@@ -3,8 +3,10 @@
 const jwt = require('jsonwebtoken')
 const router = require('koa-router')();
 const DB = require('../../tool/db.js')
+const uuid = require('../../tool/uuid')
 //配置admin的子路由  层级路由
 router.post('/', async (ctx) => {
+    console.log(uuid(8, 16));
     let name = ctx.request.body.name,
         pwd = ctx.request.body.pwd,
         resData = [];
