@@ -13,13 +13,16 @@ router.post('/', async (ctx) => {
 })
 
 router.post('/remove', async (ctx, next) => {
-    if(ctx.cookies.get('userinfo')){
-        ctx.cookies.set('userinfo', null,{
+    DB.find().then((res) => {
+        console.log(res);
+    })
+    if (ctx.cookies.get('userinfo')) {
+        ctx.cookies.set('userinfo', null, {
             maxAge: 60 * 1000 * 60,
         });
-        ctx.body = {issuc:true}
-    }else{
-        ctx.body = {issuc:'已经删除过了'}
+        ctx.body = { issuc: true }
+    } else {
+        ctx.body = { issuc: '已经删除过了' }
     }
 })
 module.exports = router.routes();

@@ -44,6 +44,20 @@ class Db {
       })
     })
   }
+  find() {
+    return new Promise((resolve, reject) => {
+      this.connect().then((db) => {
+        db.query(`select * from user where userName="胡思齐"`, {}, (err, rows) => {
+          if (err) {
+            reject(err)
+          } else {
+            resolve(rows)
+          }
+          db.release()
+        })
+      })
+    })
+  }
 }
 
 module.exports = Db.getInstance();
