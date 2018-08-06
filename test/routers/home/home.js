@@ -13,9 +13,6 @@ router.post('/', async (ctx) => {
 })
 
 router.post('/remove', async (ctx, next) => {
-    DB.find().then((res) => {
-        console.log(res);
-    })
     if (ctx.cookies.get('userinfo')) {
         ctx.cookies.set('userinfo', null, {
             maxAge: 60 * 1000 * 60,
