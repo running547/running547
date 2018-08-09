@@ -95,7 +95,7 @@ class App extends React.Component {
            collapsed={this.state.collapsed}
         >
         </Sider>
-        <Content>Content</Content>
+        <Content>Contentasdasdasdasdd</Content>
       </Layout>
       <Footer>Footer</Footer>
     </Layout>
