@@ -1,10 +1,22 @@
 import React, { Component } from 'react';
-
 import './App.css';
 import { Layout, Button, Menu, Icon  } from 'antd';
+// import { connect } from 'http2';
+import { connect } from 'react-redux'
+import { addGun, removeGun, addGunAsync } from './index.redux'
+
+
 const SubMenu = Menu.SubMenu;
 const MenuItemGroup = Menu.ItemGroup;
 const { Header, Content, Footer, Sider } = Layout;
+
+
+
+@connect(
+  state=>({ num: state}),
+  {addGun, removeGun, addGunAsync}
+)
+
 
 class App extends React.Component {
   state = {
@@ -68,7 +80,7 @@ class App extends React.Component {
     return (
       <Layout style={{height:"100vh"}}>
       <Header style={{color:"#fff"}}>
-        {button}Logo
+        Logo
       </Header>
      {comMenu}
       <Layout>
@@ -94,8 +106,15 @@ class App extends React.Component {
            }}
            collapsed={this.state.collapsed}
         >
+        {button}
         </Sider>
-        <Content>Contentasdasdasdasdd</Content>
+        <Content>
+        现在有机枪现在有机枪现在有机枪现在有机枪现在有机枪
+          <h2>现在有机枪{this.props.num}把</h2>
+          <Button type="primary" onClick={this.props.addGun}>申请武器</Button>
+          <Button type="primary" onClick={this.props.removeGun}>上交武器</Button>
+          <Button type="primary" onClick={this.props.addGunAsync}>拖两天再给</Button>
+        </Content>
       </Layout>
       <Footer>Footer</Footer>
     </Layout>

@@ -29,12 +29,14 @@
 
     webSocket.onopen = function (evt) {
         // 一旦连接成功，就发送第一条数据
-         webSocket.send("第一条数据")
+        console.log(evt.data);
+        
+        $('#txt').text(evt.data)
+         
     }
     webSocket.onmessage = function (evt) {
         // 这是服务端返回的数据
         $('#txt').text(evt.data)
-        console.log("服务端说" + evt.data)
     }
     // 关闭连接
     webSocket.onclose = function (evt) {

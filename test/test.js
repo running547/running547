@@ -7,20 +7,18 @@ const Koa = require('koa'),
     koaBodyparser = require('koa-bodyparser');
 const websockify = require('koa-websocket');
 const app = websockify(new Koa());
-var t = 1;
+var t = "";
 
     app.ws.use(route.all('/connect', function (ctx) {
-        
-        setInterval(()=>{
-            t++;
-            ctx.websocket.send('天才啊'+t)
-        },10000)
-            ctx.websocket.on('message', function (message) {
-                // 返回给前端的数据
-              
-                ctx.websocket.send(message+'天才啊'+t)
-            })
-       
+        ctx.websocket.send(t)
+        console.log(t);
+        ctx.websocket.on('message', function (message) {
+            // 返回给前端的数据
+           
+            
+            t+= message
+            ctx.websocket.send(t)
+        })
     }))
 
 
