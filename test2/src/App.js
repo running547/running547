@@ -10,11 +10,13 @@ const SubMenu = Menu.SubMenu;
 const MenuItemGroup = Menu.ItemGroup;
 const { Header, Content, Footer, Sider } = Layout;
 
-
+function Test3(props){
+  return <div>{props.name}</div>
+}
 
 @connect(
-  state=>({ num: state}),
-  {addGun, removeGun, addGunAsync}
+  state=>({ num: state}),  //传递参数 
+  {addGun, removeGun, addGunAsync}  //传递方法
 )
 
 class App extends React.Component {
@@ -116,6 +118,7 @@ class App extends React.Component {
           <Button type="primary" onClick={this.props.addGunAsync}>拖两天再给</Button>
           <Test tit="哈哈"></Test>
           <Test2 tit="你好"></Test2>
+          <Test3 name='jaja'></Test3>
         </Content>
       </Layout>
       <Footer>Footer</Footer>

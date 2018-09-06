@@ -27,15 +27,17 @@ function listener(){
     console.log(current);
     
 }
-
-/**
- * 派发事件
- */
-store.dispatch({ type: '加一' })
-
 /**
  * 监听state
  */
 store.subscribe(listener)
+/**
+ * 派发事件
+ */
+store.dispatch({ type: '加一' })
+store.dispatch({ type: '加一' })
+store.dispatch({ type: '加一' })
+
+
 
 
