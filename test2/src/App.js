@@ -4,7 +4,7 @@ import { Layout, Button, Menu, Icon  } from 'antd';
 // import { connect } from 'http2';
 import { connect } from 'react-redux'
 import { addGun, removeGun, addGunAsync } from './index.redux'
-
+import {Test,Test2} from './test'
 
 const SubMenu = Menu.SubMenu;
 const MenuItemGroup = Menu.ItemGroup;
@@ -16,7 +16,6 @@ const { Header, Content, Footer, Sider } = Layout;
   state=>({ num: state}),
   {addGun, removeGun, addGunAsync}
 )
-
 
 class App extends React.Component {
   state = {
@@ -81,6 +80,7 @@ class App extends React.Component {
       <Layout style={{height:"100vh"}}>
       <Header style={{color:"#fff"}}>
         Logo
+        
       </Header>
      {comMenu}
       <Layout>
@@ -114,6 +114,8 @@ class App extends React.Component {
           <Button type="primary" onClick={this.props.addGun}>申请武器</Button>
           <Button type="primary" onClick={this.props.removeGun}>上交武器</Button>
           <Button type="primary" onClick={this.props.addGunAsync}>拖两天再给</Button>
+          <Test tit="哈哈"></Test>
+          <Test2 tit="你好"></Test2>
         </Content>
       </Layout>
       <Footer>Footer</Footer>
