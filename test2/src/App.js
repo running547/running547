@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import './App.css';
 import { Layout, Button, Menu, Icon  } from 'antd';
-// import { connect } from 'http2';
 import { connect } from 'react-redux'
+// import { connect } from 'http2';
 import { addGun, removeGun, addGunAsync } from './index.redux'
+import {logIn} from './login.redux'
 import {Test,Test2} from './test'
 
 const SubMenu = Menu.SubMenu;
@@ -15,8 +16,9 @@ function Test3(props){
 }
 
 @connect(
-  state=>({ num: state}),  //传递参数 
-  {addGun, removeGun, addGunAsync}  //传递方法
+  state=>({num:state.counter,num2:state.loginFn.isAuth}),
+    //传递参数 
+  {addGun, removeGun, addGunAsync,logIn}  //传递方法
 )
 
 class App extends React.Component {
@@ -113,9 +115,12 @@ class App extends React.Component {
         <Content>
         现在有机枪现在有机枪现在有机枪现在有机枪现在有机枪
           <h2>现在有机枪{this.props.num}把</h2>
+          <h2>现在有机枪{this.props.num2}把</h2>
+          <h1>{this.props.auth}</h1>
           <Button type="primary" onClick={this.props.addGun}>申请武器</Button>
           <Button type="primary" onClick={this.props.removeGun}>上交武器</Button>
           <Button type="primary" onClick={this.props.addGunAsync}>拖两天再给</Button>
+           <Button type='primary' onClick={this.props.logIn}>改变</Button>
           <Test tit="哈哈"></Test>
           <Test2 tit="你好"></Test2>
           <Test3 name='jaja'></Test3>

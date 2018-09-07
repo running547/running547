@@ -1,5 +1,13 @@
 import React, { Component } from 'react'
-import PropTypes from 'prop-types'
+import {connect } from 'react-redux'
+import {logIn} from './login.redux'
+
+@connect(
+  state=>({auth:state.loginFn.isAuth}),
+    //传递参数 
+  {logIn}  //传递方法
+)
+
 
 export class Test extends Component {
   static propTypes = {
@@ -9,7 +17,7 @@ export class Test extends Component {
   render() {
     return (
       <div>
-        {this.props.tit}
+      {this.props.auth}
       </div>
     )
   }
