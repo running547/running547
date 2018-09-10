@@ -35,7 +35,7 @@ ReactDOM.render(
                 <Link to="/test2">测试</Link>
                 <Link to="/test3">测试2</Link>
                 <Link to="/test">测试4</Link>
-                console.log('aa');
+               {console.log('aaa')}
                 
                 <Switch>
                     <Route path="/" exact component={App}></Route>
